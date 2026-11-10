@@ -54,6 +54,17 @@ window.ANIM233.register({
 
 > 安全说明：导入的 `pack.js` 必须调用 `ANIM233.register`，否则被拒绝加载；脚本运行在浏览器侧，请只导入你信任的来源。
 
+## 本地自测
+
+```bash
+# 运行时 + 13 个包注册 + build 冒烟（Node，无需浏览器）
+node smoke-test.cjs
+
+# 浏览器视觉自测（起个静态服务后打开）
+python -m http.server 8899 --bind 127.0.0.1
+# 访问 http://127.0.0.1:8899/preview-test.html
+```
+
 ## 目录结构
 
 ```

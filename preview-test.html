@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>anim233 运行时自测</title>
+<style>
+  html.a233-lock, html.a233-lock body, html.a233-lock body { overflow: hidden !important; }
+  html, body { margin: 0; height: 100%; background: #05070d; color: #fff; font-family: system-ui, sans-serif; }
+  #anim233-root.a233-boot { position: fixed; inset: 0; z-index: 2147483000; background: #000; }
+</style>
+</head>
+<body>
+<div id="anim233-root" class="a233-root a233-boot"></div>
+<script>
+  window.__ANIM233__ = {
+    enabled: true,
+    mode: 'always',
+    pack: 'genshin',
+    allowSkip: true,
+    entranceEnabled: true,
+    speed: 1,
+    username: '博士',
+    backgroundEnabled: true,
+    backgroundOpacity: 0.55,
+    backgroundType: 'preset',
+    backgroundPreset: 'aurora',
+    backgroundImage: '',
+    backgroundGradient: '',
+    backgroundUrl: ''
+  };
+</script>
+<script src="lib/anim233.js"></script>
+<script src="lib/background.js"></script>
+<script src="lib/packs.js"></script>
+<script src="lib/splash.js"></script>
+</body>
+</html>

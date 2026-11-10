@@ -1,3 +1,7 @@
 
 # codegraph233 本地索引（勿提交）
 /.codegraph233/
+
+# 本地自测产物
+preview-*.png
+*.tgz
