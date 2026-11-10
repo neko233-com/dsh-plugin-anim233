@@ -1,0 +1,12 @@
+# dsh-plugin-anim233 — DSH bundle patch
+#
+# Host 半侧把动画框架挂进当前 profile 的配置树；
+# Web 半侧由 package.json 的 dsh.client 自动组装，这里不写。
+#
+# 安装（不手改 profile patch）：
+#   dsh plugin --profile web add dsh-plugin-anim233
+# 本地开发安装：
+#   dsh plugin --profile web add link:<本目录>
+- insert:
+    - id: dsh-plugin-anim233
+      name: dsh-plugin-anim233

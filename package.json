@@ -1,0 +1,56 @@
+{
+  "name": "dsh-plugin-anim233",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness 动画框架插件：内置原神/明日方舟/星穹铁道等 10+ 热门游戏风格启动动画与进入后 UI+UX 动画，支持 git 导入别人的动画包、可调透明度背景层、自定义用户名（默认『博士』）。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "animation",
+    "startup",
+    "splash",
+    "boot-animation",
+    "ui-animation"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "examples",
+    "icon.svg",
+    "安装.cmd",
+    "打开预览.cmd",
+    "cordis.patch.yml",
+    "README.md",
+    "INSTALL.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node smoke-test.cjs"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neko233-com/dsh-plugin-anim233.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ],
+      "platform": "web"
+    }
+  },
+  "author": "neko233"
+}

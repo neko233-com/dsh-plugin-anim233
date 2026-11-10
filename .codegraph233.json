@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "strategy": "generic",
+  "profile": "full",
+  "roots": [
+    {
+      "key": "client",
+      "path": ".",
+      "role": "frontend"
+    }
+  ],
+  "languages": [
+    "csharp"
+  ],
+  "exclude": [],
+  "config_dirs": [],
+  "features": {
+    "code": null,
+    "type_deps": null,
+    "prefabs": null,
+    "shaders": null,
+    "assets": null,
+    "meta": null,
+    "config_tables": null,
+    "guid_map": null
+  },
+  "guid_map": []
+}
