@@ -21,6 +21,9 @@
   },
   "files": [
     "lib",
+    "test",
+    "scripts",
+    "docs",
     "examples",
     "icon.svg",
     "安装.cmd",
@@ -28,10 +31,15 @@
     "cordis.patch.yml",
     "README.md",
     "INSTALL.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
     "LICENSE"
   ],
   "scripts": {
-    "test": "node smoke-test.cjs"
+    "check": "node scripts/check-syntax.cjs",
+    "test": "node --test \"test/*.test.cjs\"",
+    "verify": "npm run check && npm test",
+    "install:local": "node scripts/install.cjs --profile desktop"
   },
   "license": "MIT",
   "repository": {

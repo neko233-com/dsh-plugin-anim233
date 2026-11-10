@@ -1,6 +1,16 @@
 @echo off
-REM 本机安装 anim233 到当前 DSH profile
-dsh plugin --profile web add link:%~dp0
+chcp 65001 >nul
+setlocal
+set PROFILE=%~1
+if "%PROFILE%"=="" set PROFILE=desktop
+echo 正在安装 anim233 到 DSH profile [%PROFILE%] ...
+node "%~dp0scripts\install.cjs" --profile %PROFILE%
+if errorlevel 1 (
+  echo.
+  echo 安装失败，请检查上面的错误信息。
+  pause
+  exit /b 1
+)
 echo.
-echo 安装完成，刷新 DSH Web GUI 即可看到启动动画与设置页「动画 233」。
+echo 安装完成。重启 DSH 并刷新页面即可生效。
 pause

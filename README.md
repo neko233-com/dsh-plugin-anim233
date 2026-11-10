@@ -13,17 +13,40 @@
 - **git 导入**：设置页填别人的 git 仓库地址，一键 clone（或 pull 更新），仓库需含 `pack.js`（`window.ANIM233.register(...)`）与可选 `manifest.json`。
 - **自定义用户名**：默认「博士」，启动动画与欢迎语里会显示，设置页可改。
 
-## 安装
+## 安装（无需 npm registry）
+
+anim233 是 DSH 插件，**不需要发布到 npm** 也能安装：DSH 从本地目录 / git 仓库 link 即可挂载。
+
+**方式一：脚本（推荐）**
 
 ```bash
-# 从本地目录安装（开发用）
-dsh plugin --profile web add link:<本目录>
-
-# 或从 npm 安装（发布后）
-dsh plugin --profile web add dsh-plugin-anim233
+# Windows 双击 安装.cmd，或：
+node scripts/install.cjs --profile desktop
 ```
 
-安装后打开 DSH 设置 →「动画 233」即可配置；刷新页面会触发启动动画。
+脚本会：`dsh plugin add link:<本目录>` → 建 node_modules 链接 → 把包写入 profile 的 `dsh.profile.bundles`。
+
+**方式二：DSH 插件页**
+
+打开 DSH「插件」页 → 从本地目录 / git 地址安装 → 选择本目录。
+
+**方式三：手动**
+
+```bash
+dsh plugin --profile desktop add link:<本目录>
+```
+
+> 装完需**重启 DSH**（或重开应用），再刷新 Web GUI 页面；设置 →「动画 233」即可配置。
+
+## 工程化
+
+```bash
+node scripts/check-syntax.cjs   # 语法检查
+node --test test/               # 单元测试（运行时 + 静态契约）
+npm run verify                  # 两者都跑
+```
+
+CI：`.github/workflows/ci.yml`（Node 20/22/24 矩阵，自动跑语法检查 + 测试）。
 
 ## 编写自己的动画包
 
@@ -75,6 +98,17 @@ lib/
   background.js    可调透明度背景层
   packs.js         13 款内置游戏动画包
   splash.js        启动编排（建根 / 跳过 / 重播 API）
+test/
+  runtime.test.cjs 运行时冒烟（13 包注册 + build）
+  static.test.cjs  包元数据 / 文件 / 路由 / 语法契约
+scripts/
+  install.cjs      本地安装到 DSH profile（无需 npm）
+  check-syntax.cjs 语法检查
+docs/
+  ARCHITECTURE.md  架构说明
+  PACK-SPEC.md     动画包规范
+examples/
+  sample-pack/     可导入的示例动画包
 ```
 
 ## License
